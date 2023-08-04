@@ -32,12 +32,12 @@ public class Product {
     private Double price ;
     @NotEmpty
     private String name;
-    @Column(name = "created_at",insertable = false)
+    @Column(name = "created_at")
     @CreationTimestamp
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
     @Column(name = "updated_at")
-    @CreationTimestamp()
-    private Timestamp modifiedAt;
+    @UpdateTimestamp
+    private LocalDateTime modifiedAt;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
     Set<Review> reviews=new HashSet<>();
